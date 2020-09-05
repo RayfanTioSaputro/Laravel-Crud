@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <button type="submit" class="btn btn-outline-danger mr-2 pr-3 pl-3">Clear</button>
+                <button type="button" id="clear" class="btn btn-outline-danger mr-2 pr-3 pl-3">Clear</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>      
         </form>
@@ -98,7 +98,17 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $('.data').DataTable();
+        $(document).ready(function(){
+            $('.data').DataTable();
+
+            $('#clear').click(function(){
+                $('#no').val("");
+                $('#nama_siswa').val("");
+                $('#asal_sekolah').val("");
+                $('#pilihan_jurusan1').val("");
+                $('#pilihan_jurusan2').val("");
+            }); 
+        });
     </script>
 </body>
 </html>

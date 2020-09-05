@@ -24,6 +24,7 @@ class CalonsiswaController extends Controller
             'pilihan_jurusan1'=>$request->pilihan_jurusan1,
             'pilihan_jurusan2'=>$request->pilihan_jurusan2
         ]);
+        $request->session()->flash('sukses_tambah', "Data Atas Nama {$request['nama_siswa']} Berhasil Ditambahkan");
         return redirect('/calonsiswa');
     }
 
@@ -40,11 +41,12 @@ class CalonsiswaController extends Controller
             'pilihan_jurusan1'=>$request->pilihan_jurusan1,
             'pilihan_jurusan2'=>$request->pilihan_jurusan2
         ]);
+        $request->session()->flash('sukses_edit', "Data Dengan No. PPDB {$request['no']} Berhasil Diubah");
         return redirect('/calonsiswa');
     }
 
     public function hapus($id){
         DB::table('calonsiswas')->where('id',$id)->delete();
-        return redirect('/calonsiswa');
+        return redirect('/calonsiswa')->with('sukses_hapus', "Data Berhasil Dihapus");
     }
 }

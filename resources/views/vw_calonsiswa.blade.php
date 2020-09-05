@@ -17,6 +17,13 @@
         .ml-4-5{
             margin-left: 2.7rem;
         }
+        .alert{
+            margin-top: -30px;
+            margin-bottom: 30px;
+        }
+        .close:focus{
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -29,6 +36,34 @@
                 <a href="/calonsiswa/tambah" class="btn btn-sm btn-primary mt-2 ml-4-5">Tambah Data</a>
             </div>
         </div>
+        
+        @if(session()->has('sukses_tambah'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('sukses_tambah') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if(session()->has('sukses_edit'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('sukses_edit') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if(session()->has('sukses_hapus'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('sukses_hapus') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <table class="table table-striped table-bordered data">
             <thead>
                 <tr>
